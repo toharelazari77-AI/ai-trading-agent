@@ -14,4 +14,3 @@ jobs:
       - uses: actions/setup-python@v4
       - run: pip install yfinance pandas requests
       - run: python agent.py
-      - run: pip install yfinance pandas requests lxml
