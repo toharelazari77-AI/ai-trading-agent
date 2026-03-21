@@ -3,7 +3,6 @@ name: Run Trading Agent
 on:
   schedule:
     - cron: "0 * * * *"
-    - cron: "0 21 * * 1-5"
   workflow_dispatch:
 
 jobs:
@@ -11,7 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-      - run: pip install yfinance pandas requests lxml
-      - run: python agent.py
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install yfinance pandas requests lxml
+
+      - name: Run agent
+        run: python agent.py
