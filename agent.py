@@ -117,11 +117,11 @@ for symbol in symbols:
         continue
 
 # שליחה
-if messages:
-    text = "\n\n".join(messages[:15])
-    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
-    requests.post(url, data={"chat_id": CHAT_ID, "text": text})
+if not messages:
+    messages.append("✅ TEST MESSAGE - הבוט עובד")
 
-save_state()
-messages.append("✅ הבוט עובד בהצלחה 🔥")
+text = "\n\n".join(messages[:15])
+url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
+requests.post(url, data={"chat_id": CHAT_ID, "text": text})
+
 print("Pro Scan done")
