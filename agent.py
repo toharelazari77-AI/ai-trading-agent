@@ -123,5 +123,5 @@ if messages:
     requests.post(url, data={"chat_id": CHAT_ID, "text": text})
 
 save_state()
-
+messages.append("✅ הבוט עובד בהצלחה 🔥")
 print("Pro Scan done")
